@@ -9,7 +9,7 @@
     Muhammad dian rahndra 1910512071
     Aditya yoga 1910512081
 
-    Note : Dibuat di Intellij IDE
+    Note : Dibuat di Intellij IDE.
 */
 
 
