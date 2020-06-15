@@ -1,9 +1,9 @@
 public interface IMultiList {
     void dataAwalParent();
 
-    void addFirstParent(Jurusan data);
-    void addAtParent(Jurusan data, int index);
-    void addLastParent(Jurusan data);
+    void addFirstParent(Prodi data);
+    void addAtParent(Prodi data, int index);
+    void addLastParent(Prodi data);
 
     void deleteFirstParent();
     void deleteAtParent(int index);

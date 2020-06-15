@@ -1,6 +1,6 @@
 public class Node {
     Node next;
     Node child;
-    Jurusan dataParent;
+    Prodi dataParent;
     Mahasiswa dataChild;
 }
