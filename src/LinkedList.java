@@ -3,24 +3,24 @@ public class LinkedList implements IMultiList {
 
     @Override
     public void dataAwalParent() {
-        Prodi jurusan = new Prodi(1, "Sistem Informasi", "samping masjid");
+        Jurusan jurusan = new Jurusan(1, "Sistem Informasi", "samping masjid");
         addLastParent(jurusan);
-        jurusan = new Prodi(2, "Informatika", "samping masjid");
+        jurusan = new Jurusan(2, "Informatika", "samping masjid");
         addLastParent(jurusan);
-        jurusan = new Prodi(3, "D3 Sistem Informasi", "samping masjid");
+        jurusan = new Jurusan(3, "D3 Sistem Informasi", "samping masjid");
         addLastParent(jurusan);
     }
 
     @Override
-    public void addFirstParent(Prodi data) {
+    public void addFirstParent(Jurusan data) {
         Node node = new Node();
         node.dataParent = data;
         node.next = null;
 
-        boolean terdaftar = searchDataParent(node.dataParent.idprodi);
+        boolean terdaftar = searchDataParent(node.dataParent.idjurusan);
 
         if (terdaftar) {
-            System.out.println("Id Prodi sudah terdaftar");
+            System.out.println("Id Jurusan sudah terdaftar");
         } else {
             node.next = head;
             head = node;
@@ -29,7 +29,7 @@ public class LinkedList implements IMultiList {
     }
 
     @Override
-    public void addAtParent(Prodi data, int index) {
+    public void addAtParent(Jurusan data, int index) {
         Node node = new Node();
         node.dataParent = data;
         node.next = null;
@@ -42,10 +42,10 @@ public class LinkedList implements IMultiList {
         }
 
         if (totalIndex + 1 >= index) {
-            boolean terdaftar = searchDataParent(node.dataParent.idprodi);
+            boolean terdaftar = searchDataParent(node.dataParent.idjurusan);
 
             if (terdaftar) {
-                System.out.println("Id Prodi sudah terdaftar");
+                System.out.println("Id Jurusan sudah terdaftar");
             } else {
                 if (index == 0) {
                     addFirstParent(data);
@@ -66,15 +66,15 @@ public class LinkedList implements IMultiList {
     }
 
     @Override
-    public void addLastParent(Prodi data) {
+    public void addLastParent(Jurusan data) {
         Node node = new Node();
         node.dataParent = data;
         node.next = null;
 
-        boolean terdaftar = searchDataParent(node.dataParent.idprodi);
+        boolean terdaftar = searchDataParent(node.dataParent.idjurusan);
 
         if (terdaftar) {
-            System.out.println("Id Prodi sudah terdaftar");
+            System.out.println("Id Jurusan sudah terdaftar");
         } else {
             Node n = head;
 
@@ -154,9 +154,9 @@ public class LinkedList implements IMultiList {
         Node node = head;
 
         while (true) {
-            System.out.printf("%n%-17s: %s %n", "Id Prodi", node.dataParent.idprodi);
-            System.out.printf("%-17s: %s %n", "Nama Prodi", node.dataParent.namaProdi);
-            System.out.printf("%-17s: %s %n", "Lokasi Prodi", node.dataParent.lokasiProdi);
+            System.out.printf("%n%-17s: %s %n", "Id Jurusan", node.dataParent.idjurusan);
+            System.out.printf("%-17s: %s %n", "Nama Jurusan", node.dataParent.namaJurusan);
+            System.out.printf("%-17s: %s %n", "Lokasi Jurusan", node.dataParent.lokasiJurusan);
 
             if (node.next == null) {
                 break;
@@ -177,14 +177,14 @@ public class LinkedList implements IMultiList {
         } else {
             //traveling dan check data
             while (node.next != null) {
-                if (idParent == node.dataParent.idprodi) {
+                if (idParent == node.dataParent.idjurusan) {
                     return true;
                 }
                 node = node.next;
             }
 
             //cek data terakhir
-            return idParent == node.dataParent.idprodi;
+            return idParent == node.dataParent.idjurusan;
         }
     }
 
@@ -197,7 +197,7 @@ public class LinkedList implements IMultiList {
             //traveling dan check data
             boolean ketemu = false;
             while (node.next != null) {
-                if (idParent == node.dataParent.idprodi) {
+                if (idParent == node.dataParent.idjurusan) {
                     ketemu = true;
                     break;
                 }
@@ -205,14 +205,14 @@ public class LinkedList implements IMultiList {
             }
 
             //cek node terakhir
-            if (idParent == node.dataParent.idprodi) {
+            if (idParent == node.dataParent.idjurusan) {
                 ketemu = true;
             }
 
             if (ketemu) {
-                System.out.printf("%n%-17s: %s %n", "Id Prodi", node.dataParent.idprodi);
-                System.out.printf("%-17s: %s %n", "Nama Prodi", node.dataParent.namaProdi);
-                System.out.printf("%-17s: %s %n", "Lokasi Prodi", node.dataParent.lokasiProdi);
+                System.out.printf("%n%-17s: %s %n", "Id Jurusan", node.dataParent.idjurusan);
+                System.out.printf("%-17s: %s %n", "Nama Jurusan", node.dataParent.namaJurusan);
+                System.out.printf("%-17s: %s %n", "Lokasi Jurusan", node.dataParent.lokasiJurusan);
             } else {
                 System.out.println("Data not found");
             }
@@ -247,14 +247,14 @@ public class LinkedList implements IMultiList {
 
             //traveling cari data id jurusan yang sesuai dengan mahasiswa
             Node n = head;
-            while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+            while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
                 n = n.next;
             }
 
             //jika sudah sampe ujung node
             if (n.next == null) {
                 // cek lagi data jurusan sama atau enggak
-                if (n.dataParent.idprodi == idParent) {
+                if (n.dataParent.idjurusan == idParent) {
                     //cek jika belum ada mahasiswa di jurusan tsb
                     if (n.child == null) {
                         n.child = node;
@@ -266,7 +266,7 @@ public class LinkedList implements IMultiList {
                     }
                     System.out.println("Insert Succes\n");
                 } else {
-                    System.out.println("Prodi tidak tersedia");
+                    System.out.println("Jurusan tidak tersedia");
                 }
             } else {
                 //jika jurusan tersedia
@@ -299,14 +299,14 @@ public class LinkedList implements IMultiList {
         } else {
             //traveling cari data id jurusan yang sesuai dengan mahasiswa
             Node n = head;
-            while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+            while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
                 n = n.next;
             }
 
             //jika sudah sampe ujung node
             if (n.next == null) {
                 // cek lagi data jurusan sama atau enggak
-                if (n.dataParent.idprodi == idParent) {
+                if (n.dataParent.idjurusan == idParent) {
                     //cek jika belum ada mahasiswa di jurusan tsb
                     if (n.child == null) {
                         n.child = node;
@@ -340,7 +340,7 @@ public class LinkedList implements IMultiList {
                         }
                     }
                 } else {
-                    System.out.println("Prodi tidak tersedia");
+                    System.out.println("Jurusan tidak tersedia");
                 }
             } else {
                 //jika jurusan tersedia
@@ -394,14 +394,14 @@ public class LinkedList implements IMultiList {
         } else {
             //traveling cari data id jurusan yang sesuai dengan mahasiswa
             Node n = head;
-            while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+            while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
                 n = n.next;
             }
 
             //jika sudah sampe ujung node
             if (n.next == null) {
                 // cek lagi data jurusan sama atau enggak
-                if (n.dataParent.idprodi == idParent) {
+                if (n.dataParent.idjurusan == idParent) {
                     //cek jika belum ada mahasiswa di jurusan tsb
                     if (n.child == null) {
                         n.child = node;
@@ -417,7 +417,7 @@ public class LinkedList implements IMultiList {
 
                     System.out.println("Insert Succes\n");
                 } else {
-                    System.out.println("Prodi tidak tersedia");
+                    System.out.println("Jurusan tidak tersedia");
                 }
             } else {
                 //jika jurusan tersedia
@@ -442,17 +442,17 @@ public class LinkedList implements IMultiList {
     @Override
     public void deleteFirstChild(int idParent) {
         Node n = head;
-        while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+        while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
             n = n.next;
         }
 
         //jika sudah sampe ujung node
         if (n.next == null) {
             // cek lagi data jurusan sama atau enggak
-            if (n.dataParent.idprodi == idParent) {
+            if (n.dataParent.idjurusan == idParent) {
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (n.child == null) {
-                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
                 } else {
                     //jika ada mahasiswa maka hapus mahasiswa pertama
                     n.child = n.child.next;
@@ -460,14 +460,14 @@ public class LinkedList implements IMultiList {
                     System.out.println("Delete Succes\n");
                 }
             } else {
-                System.out.println("Prodi tidak tersedia");
+                System.out.println("Jurusan tidak tersedia");
             }
         } else {
             //jika jurusan tersedia
 
             //cek jika belum ada mahasiswa di jurusan tsb
             if (n.child == null) {
-                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
             } else {
                 //jika ada mahasiswa maka hapus mahasiswa pertama
                 n.child = n.child.next;
@@ -480,17 +480,17 @@ public class LinkedList implements IMultiList {
     @Override
     public void deleteAtChild(int idParent, int index) {
         Node n = head;
-        while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+        while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
             n = n.next;
         }
 
         //jika sudah sampe ujung node
         if (n.next == null) {
             // cek lagi data jurusan sama atau enggak
-            if (n.dataParent.idprodi == idParent) {
+            if (n.dataParent.idjurusan == idParent) {
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (n.child == null) {
-                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
                 } else {
                     //jika ada mahasiswa
 
@@ -508,14 +508,14 @@ public class LinkedList implements IMultiList {
                     }
                 }
             } else {
-                System.out.println("Prodi tidak tersedia");
+                System.out.println("Jurusan tidak tersedia");
             }
         } else {
             //jika jurusan tersedia
 
             //cek jika belum ada mahasiswa di jurusan tsb
             if (n.child == null) {
-                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
             } else {
                 //jika ada mahasiswa
 
@@ -539,17 +539,17 @@ public class LinkedList implements IMultiList {
     @Override
     public void deleteLastChild(int idParent) {
         Node n = head;
-        while (!(n.dataParent.idprodi == idParent) & n.next != null) {
+        while (!(n.dataParent.idjurusan == idParent) & n.next != null) {
             n = n.next;
         }
 
         //jika sudah sampe ujung node
         if (n.next == null) {
             // cek lagi data jurusan sama atau enggak
-            if (n.dataParent.idprodi == idParent) {
+            if (n.dataParent.idjurusan == idParent) {
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (n.child == null) {
-                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                    System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
                 } else {
                     //jika ada mahasiswa maka hapus mahasiswa terkahir
                     n = n.child;
@@ -561,14 +561,14 @@ public class LinkedList implements IMultiList {
                     System.out.println("Delete Succes\n");
                 }
             } else {
-                System.out.println("Prodi tidak tersedia");
+                System.out.println("Jurusan tidak tersedia");
             }
         } else {
             //jika jurusan terdaftar
 
             //cek jika belum ada mahasiswa di jurusan tsb
             if (n.child == null) {
-                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaProdi);
+                System.out.println("Tidak ada data mahasiswa di jurusan " + n.dataParent.namaJurusan);
             } else {
                 //jika ada mahasiswa maka hapus mahasiswa terkahir
                 n = n.child;
@@ -586,15 +586,15 @@ public class LinkedList implements IMultiList {
     @Override
     public void viewDataChild(int idChild) {
         Node node = head;
-        while (!(node.dataParent.idprodi == idChild) & node.next != null) {
+        while (!(node.dataParent.idjurusan == idChild) & node.next != null) {
             node = node.next;
         }
 
         //jika sudah sampe ujung node
         if (node.next == null) {
             // cek lagi data jurusan sama atau enggak
-            if (node.dataParent.idprodi == idChild) {
-                System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaProdi + " : ");
+            if (node.dataParent.idjurusan == idChild) {
+                System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaJurusan + " : ");
 
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (node.child == null) {
@@ -616,11 +616,11 @@ public class LinkedList implements IMultiList {
                     System.out.println("\nSelesai");
                 }
             } else {
-                System.out.println("Prodi tidak tersedia");
+                System.out.println("Jurusan tidak tersedia");
             }
         } else {
             //jika jurusan tersedia
-            System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaProdi + " : ");
+            System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaJurusan + " : ");
 
             //cek jika belum ada mahasiswa di jurusan tsb
             if (node.child == null) {
@@ -649,7 +649,7 @@ public class LinkedList implements IMultiList {
     @Override
     public boolean searchDataChild(int idParent, int idChild) {
         Node node = head;
-        while (!(node.dataParent.idprodi == idParent) & node.next != null) {
+        while (!(node.dataParent.idjurusan == idParent) & node.next != null) {
             node = node.next;
         }
 
@@ -657,7 +657,7 @@ public class LinkedList implements IMultiList {
         if (node.next == null) {
 
             // cek lagi data jurusan sama atau enggak
-            if (node.dataParent.idprodi == idParent) {
+            if (node.dataParent.idjurusan == idParent) {
 
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (node.child == null) {
@@ -703,15 +703,15 @@ public class LinkedList implements IMultiList {
     @Override
     public void showSearchDataChild(int idParent, int idChild) {
         Node node = head;
-        while (!(node.dataParent.idprodi == idParent) & node.next != null) {
+        while (!(node.dataParent.idjurusan == idParent) & node.next != null) {
             node = node.next;
         }
 
         //jika sudah sampe ujung node
         if (node.next == null) {
             // cek lagi data jurusan sama atau enggak
-            if (node.dataParent.idprodi == idParent) {
-                System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaProdi + " : ");
+            if (node.dataParent.idjurusan == idParent) {
+                System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaJurusan + " : ");
 
                 //cek jika belum ada mahasiswa di jurusan tsb
                 if (node.child == null) {
@@ -741,12 +741,12 @@ public class LinkedList implements IMultiList {
                     }
                 }
             } else {
-                System.out.println("Prodi tidak tersedia");
+                System.out.println("Jurusan tidak tersedia");
             }
         } else {
             //jika jurusan tersedia
 
-            System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaProdi + " : ");
+            System.out.println("\nData mahasiswa jurusan " + node.dataParent.namaJurusan + " : ");
 
             //cek jika belum ada mahasiswa di jurusan tsb
             if (node.child == null) {
@@ -795,7 +795,7 @@ public class LinkedList implements IMultiList {
 
             System.out.println("Sorting selesai");
         } else {
-            System.out.println("Prodi tidak ditemukan");
+            System.out.println("Jurusan tidak ditemukan");
         }
     }
 
@@ -803,7 +803,7 @@ public class LinkedList implements IMultiList {
     public void sortParent() {
         //Node current will point to head
         Node current = head, index;
-        Prodi temp;
+        Jurusan temp;
 
         if (head == null) {
             System.out.println("Tidak ada data jurusan");
@@ -814,7 +814,7 @@ public class LinkedList implements IMultiList {
 
                 while (index != null) {
                     //If current node's data is greater than index's node data, swap the data between them
-                    if (current.dataParent.idprodi > index.dataParent.idprodi) {
+                    if (current.dataParent.idjurusan > index.dataParent.idjurusan) {
                         temp = current.dataParent;
                         current.dataParent = index.dataParent;
                         index.dataParent = temp;
@@ -836,7 +836,7 @@ public class LinkedList implements IMultiList {
             System.out.println("Tidak ada data jurusan");
         } else {
             //cari jurusan yang cocok
-            while (!(current.dataParent.idprodi == idParent) & current.next != null) {
+            while (!(current.dataParent.idjurusan == idParent) & current.next != null) {
                 current = current.next;
             }
             current = current.child;

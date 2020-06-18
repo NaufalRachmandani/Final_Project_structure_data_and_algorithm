@@ -1,4 +1,6 @@
 
+
+
 /*
     Created by :
     Naufal Rachmandani 1910512085
@@ -24,10 +26,10 @@ public class Main {
         list.dataAwalParent();
         list.dataAwalChild();
 
-        Prodi jurusan;
+        Jurusan jurusan;
         int idJurusan;
-        String namaProdi;
-        String lokasiProdi;
+        String namaJurusan;
+        String lokasiJurusan;
         int index;
         int menu;
 
@@ -39,23 +41,23 @@ public class Main {
         while (true) {
 
             System.out.print("\nMENU" +
-                    "\n1.Insert Data Prodi (First)" +
-                    "\n2.Insert Data Prodi (At)" +
-                    "\n3.Insert Data Prodi (Last)" +
+                    "\n1.Insert Data Jurusan (First)" +
+                    "\n2.Insert Data Jurusan (At)" +
+                    "\n3.Insert Data Jurusan (Last)" +
                     "\n4.Insert Data Mahasiswa (First)" +
                     "\n5.Insert Data Mahasiswa (At)" +
                     "\n6.Insert Data Mahasiswa (Last)" +
-                    "\n7.Delete Data Prodi (First)" +
-                    "\n8.Delete Data Prodi (At)" +
-                    "\n9.Delete Data Prodi (Last)" +
+                    "\n7.Delete Data Jurusan (First)" +
+                    "\n8.Delete Data Jurusan (At)" +
+                    "\n9.Delete Data Jurusan (Last)" +
                     "\n10.Delete Data Mahasiswa (First)" +
                     "\n11.Delete Data Mahasiswa (At)" +
                     "\n12.Delete Data Mahasiswa (Last)" +
-                    "\n13.View Data Prodi" +
+                    "\n13.View Data Jurusan" +
                     "\n14.View Data Mahasiswa" +
-                    "\n15.Search Data Prodi" +
+                    "\n15.Search Data Jurusan" +
                     "\n16.Search Data Mahasiswa" +
-                    "\n17.Sorting Data Prodi" +
+                    "\n17.Sorting Data Jurusan" +
                     "\n18.Sorting Data Mahasiswa" +
                     "\n0.EXIT" +
                     "\nMasukkan Pilihan : ");
@@ -65,45 +67,45 @@ public class Main {
             switch (menu) {
                 case 1:
                     System.out.println("\nInsert data jurusan");
-                    System.out.print("Id Prodi : ");
+                    System.out.print("Id Jurusan : ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Nama Prodi : ");
-                    namaProdi = scanner.nextLine();
-                    System.out.print("Lokasi Prodi : ");
-                    lokasiProdi = scanner.nextLine();
+                    System.out.print("Nama Jurusan : ");
+                    namaJurusan = scanner.nextLine();
+                    System.out.print("Lokasi Jurusan : ");
+                    lokasiJurusan = scanner.nextLine();
 
-                    jurusan = new Prodi(idJurusan, namaProdi, lokasiProdi);
+                    jurusan = new Jurusan(idJurusan, namaJurusan, lokasiJurusan);
                     list.addFirstParent(jurusan);
                     break;
                 case 2:
                     System.out.println("\nInsert data jurusan");
-                    System.out.print("Id Prodi : ");
+                    System.out.print("Id Jurusan : ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Nama Prodi : ");
-                    namaProdi = scanner.nextLine();
-                    System.out.print("Lokasi Prodi : ");
-                    lokasiProdi = scanner.nextLine();
-                    System.out.print("Index Prodi(Masukkan Angka) : ");
+                    System.out.print("Nama Jurusan : ");
+                    namaJurusan = scanner.nextLine();
+                    System.out.print("Lokasi Jurusan : ");
+                    lokasiJurusan = scanner.nextLine();
+                    System.out.print("Index Jurusan(Masukkan Angka) : ");
                     index = Integer.parseInt(scanner.nextLine());
 
-                    jurusan = new Prodi(idJurusan, namaProdi, lokasiProdi);
+                    jurusan = new Jurusan(idJurusan, namaJurusan, lokasiJurusan);
                     list.addAtParent(jurusan, index);
                     break;
                 case 3:
                     System.out.println("\nInsert data jurusan");
-                    System.out.print("Id Prodi : ");
+                    System.out.print("Id Jurusan : ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Nama Prodi : ");
-                    namaProdi = scanner.nextLine();
-                    System.out.print("Lokasi Prodi : ");
-                    lokasiProdi = scanner.nextLine();
+                    System.out.print("Nama Jurusan : ");
+                    namaJurusan = scanner.nextLine();
+                    System.out.print("Lokasi Jurusan : ");
+                    lokasiJurusan = scanner.nextLine();
 
-                    jurusan = new Prodi(idJurusan, namaProdi, lokasiProdi);
+                    jurusan = new Jurusan(idJurusan, namaJurusan, lokasiJurusan);
                     list.addLastParent(jurusan);
                     break;
                 case 4:
                     System.out.println("\nInsert data mahasiswa");
-                    System.out.print("Id Prodi mahasiswa yang ingin ditambahkan: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin ditambahkan: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
                     System.out.print("Nama Mahasiswa : ");
                     namaMahasiswa = scanner.nextLine();
@@ -117,7 +119,7 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("\nInsert data mahasiswa");
-                    System.out.print("Id Prodi mahasiswa yang ingin ditambahkan: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin ditambahkan: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
                     System.out.print("Nama Mahasiswa : ");
                     namaMahasiswa = scanner.nextLine();
@@ -133,7 +135,7 @@ public class Main {
                     break;
                 case 6:
                     System.out.println("\nInsert data mahasiswa");
-                    System.out.print("Id Prodi mahasiswa yang ingin ditambahkan: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin ditambahkan: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
                     System.out.print("Nama Mahasiswa : ");
                     namaMahasiswa = scanner.nextLine();
@@ -165,7 +167,7 @@ public class Main {
                 case 10:
                     System.out.println("\nDelete data mahasiswa");
 
-                    System.out.print("Id Prodi mahasiswa yang ingin dihapus: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin dihapus: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
 
                     list.deleteFirstChild(idJurusan);
@@ -173,7 +175,7 @@ public class Main {
                 case 11:
                     System.out.println("\nDelete data mahasiswa");
 
-                    System.out.print("Id Prodi mahasiswa yang ingin dihapus: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin dihapus: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
                     System.out.print("Masukkan index Mahasiswa yang ingin dihapus(Masukkan Angka) : ");
                     index = Integer.parseInt(scanner.nextLine());
@@ -183,7 +185,7 @@ public class Main {
                 case 12:
                     System.out.println("\nDelete data mahasiswa");
 
-                    System.out.print("Id Prodi mahasiswa yang ingin dihapus: ");
+                    System.out.print("Id Jurusan mahasiswa yang ingin dihapus: ");
                     idJurusan = Integer.parseInt(scanner.nextLine());
 
                     list.deleteLastChild(idJurusan);
@@ -215,7 +217,7 @@ public class Main {
                     list.showSearchDataChild(idJurusan, nimMahasiswa);
                     break;
                 case 17:
-                    System.out.println("\nSorting data Prodi");
+                    System.out.println("\nSorting data Jurusan");
 
                     list.sortingDataParent();
                     break;
