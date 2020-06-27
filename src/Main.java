@@ -1,23 +1,15 @@
 
 
 
-/*
-    Created by :
-    Naufal Rachmandani 1910512085
-    Diny rahmawati 1910512098
-    Imam abdul karim sulaiman 1910512104
-    Muhammad dian rahndra 1910512071
-    Aditya yoga 1910512081
-
-    Note : Dibuat di Intellij IDE
-*/
-
-
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+       initiate();
+    }
+
+    public static void initiate() {
         Scanner scanner = new Scanner(System.in);
 
         LinkedList list = new LinkedList();
@@ -237,3 +229,5 @@ public class Main {
         }
     }
 }
+
+
